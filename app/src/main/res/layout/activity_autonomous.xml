@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    tools:context="org.biohazard4050.powerupscouting.Autonomous">
+
+    <!-- Page header -->
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/autonomous"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+    <!-- Container for Autonomous form controls -->
+    <LinearLayout
+        android:id="@+id/form_autonomous"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/item_vertical_margin_big"
+        android:orientation="vertical">
+
+        <!-- "Crossed Baseline" checkbox -->
+        <CheckBox
+            android:id="@+id/checkbox_baseline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onCheckboxClicked"
+            android:text="@string/auto_baseline"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- "Power Cube to Switch" checkbox -->
+        <CheckBox
+            android:id="@+id/checkbox_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_vertical_margin_big"
+            android:onClick="onCheckboxClicked"
+            android:text="@string/auto_switch"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- "Power Cube to Scale" checkbox -->
+        <CheckBox
+            android:id="@+id/checkbox_scale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_vertical_margin_big"
+            android:onClick="onCheckboxClicked"
+            android:text="@string/auto_scale"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- "TeleOp Period" button -->
+    <Button
+        android:id="@+id/teleopPeriod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/form_autonomous"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/item_vertical_margin_big"
+        android:onClick="onButtonClicked"
+        android:padding="@dimen/item_horizontal_margin_small"
+        android:text="@string/period_teleop"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+</RelativeLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    tools:context="org.biohazard4050.powerupscouting.MatchNotes">
+
+    <!-- App Name header -->
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/match_notes"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+    <!-- Notes textbox -->
+    <EditText
+        android:id="@+id/match_comments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleTextView"
+        android:layout_marginRight="@dimen/item_vertical_margin_big"
+        android:layout_marginTop="@dimen/item_vertical_margin_big"
+        android:background="#EFEFEF"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        android:lines="8"
+        android:maxLines="10"
+        android:minLines="6"
+        android:scrollHorizontally="false"
+        android:scrollbars="vertical"
+        android:textSize="24sp" />
+
+    <!-- "Finalize Match" button -->
+    <Button
+        android:id="@+id/finalize_match"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/match_comments"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/item_vertical_margin_big"
+        android:onClick="onButtonClicked"
+        android:padding="@dimen/item_horizontal_margin_small"
+        android:text="@string/finalize_match"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+</RelativeLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="item_horizontal_margin_small">16dp</dimen>
+    <dimen name="item_horizontal_margin_big">32dp</dimen>
+    <dimen name="item_vertical_margin_small">16dp</dimen>
+    <dimen name="item_vertical_margin_big">32dp</dimen>
+
+    <dimen name="matchinfo_edit_text_size">10</dimen>
+    <dimen name="interop_button_size">56dp</dimen>
+    <dimen name="interop_hori_exchange_padding">148dp</dimen>
+    <dimen name="interop_hori_scale_padding">123dp</dimen>
+    <dimen name="interop_text_size">32sp</dimen>
+    <dimen name="interop_vert_scale_padding">40dp</dimen>
+    <dimen name="interop_vert_switch_padding">16dp</dimen>
+</resources>

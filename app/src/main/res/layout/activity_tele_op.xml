@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    tools:context="org.biohazard4050.powerupscouting.TeleOp">
+
+    <!-- Playing field background image -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/playing_field"
+        android:scaleType="centerCrop"
+        android:src="@drawable/powerup_field" />
+
+    <!-- Controls for RED EXCHANGE -->
+    <LinearLayout
+        android:id="@+id/ll_exchange_red"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_toLeftOf="@id/ll_switch_red"
+        android:orientation="vertical"
+        android:paddingRight="@dimen/interop_hori_exchange_padding">
+
+        <Button
+            android:id="@+id/btn_inc_exchange_red"
+            android:layout_width="@dimen/interop_button_size"
+            android:layout_height="@dimen/interop_button_size"
+            android:onClick="changeCount"
+            android:text="+"
+            android:textSize="@dimen/interop_text_size" />
+
+        <TextView
+            android:id="@+id/tv_exchange_red"
+            android:layout_width="@dimen/interop_button_size"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/interop_vert_switch_padding"
+            android:layout_marginTop="@dimen/interop_vert_switch_padding"
+            android:background="@color/frcRed"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/interop_text_size" />
+
+        <Button
+            android:id="@+id/btn_dec_exchange_red"
+            android:layout_width="@dimen/interop_button_size"
+            android:layout_height="@dimen/interop_button_size"
+            android:onClick="changeCount"
+            android:text="-"
+            android:textSize="@dimen/interop_text_size" />
+    </LinearLayout>
+
+    <!-- Controls for RED SWITCH -->
+    <LinearLayout
+        android:id="@+id/ll_switch_red"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_toLeftOf="@id/ll_scale"
+        android:orientation="vertical"
+        android:paddingRight="@dimen/interop_hori_scale_padding">
+
+        <Button
+            android:id="@+id/btn_inc_switch_red"
+            android:layout_width="@dimen/interop_button_size"
+            android:layout_height="@dimen/interop_button_size"
+            android:onClick="changeCount"
+            android:text="+"
+            android:textSize="@dimen/interop_text_size" />
+
+        <TextView
+            android:id="@+id/tv_switch_red"
+            android:layout_width="@dimen/interop_button_size"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/interop_vert_switch_padding"
+            android:layout_marginTop="@dimen/interop_vert_switch_padding"
+            android:background="@color/frcRed"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/interop_text_size" />
+
+        <Button
+            android:id="@+id/btn_dec_switch_red"
+            android:layout_width="@dimen/interop_button_size"
+            android:layout_height="@dimen/interop_button_size"
+            android:onClick="changeCount"
+            android:text="-"
+            android:textSize="@dimen/interop_text_size" />
+    </LinearLayout>
+
+    <!-- Controls for SCALE -->
+    <LinearLayout
+        android:id="@+id/ll_scale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_inc_scale"
+            android:layout_width="@dimen/interop_button_size"
+            android:layout_height="@dimen/interop_button_size"
+            android:onClick="changeCount"
+            android:text="+"
+            android:textSize="@dimen/interop_text_size" />
+
+        <TextView
+            android:id="@+id/tv_scale_count"
+            android:layout_width="56sp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/interop_vert_scale_padding"
+            android:layout_marginTop="@dimen/interop_vert_scale_padding"
+            android:background="@android:color/white"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/interop_text_size" />
+
+        <Button
+            android:id="@+id/btn_dec_scale"
+            android:layout_width="@dimen/interop_button_size"
+            android:layout_height="@dimen/interop_button_size"
+            android:onClick="changeCount"
+            android:text="-"
+            android:textSize="@dimen/interop_text_size" />
+    </LinearLayout>
+
+    <!-- Controls for BLUE SWITCH -->
+    <LinearLayout
+        android:id="@+id/ll_switch_blue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_toRightOf="@id/ll_scale"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/interop_hori_scale_padding">
+
+        <Button
+            android:id="@+id/btn_inc_switch_blue"
+            android:layout_width="@dimen/interop_button_size"
+            android:layout_height="@dimen/interop_button_size"
+            android:onClick="changeCount"
+            android:text="+"
+            android:textSize="@dimen/interop_text_size" />
+
+        <TextView
+            android:id="@+id/tv_switch_blue"
+            android:layout_width="@dimen/interop_button_size"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/interop_vert_switch_padding"
+            android:layout_marginTop="@dimen/interop_vert_switch_padding"
+            android:background="@color/frcBlue"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/interop_text_size" />
+
+        <Button
+            android:id="@+id/btn_dec_switch_blue"
+            android:layout_width="@dimen/interop_button_size"
+            android:layout_height="@dimen/interop_button_size"
+            android:onClick="changeCount"
+            android:text="-"
+            android:textSize="@dimen/interop_text_size" />
+    </LinearLayout>
+
+    <!-- Controls for BLUE EXCHANGE -->
+    <LinearLayout
+        android:id="@+id/ll_exchange_blue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_toRightOf="@id/ll_switch_blue"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/interop_hori_exchange_padding">
+
+        <Button
+            android:id="@+id/btn_inc_exchange_blue"
+            android:layout_width="@dimen/interop_button_size"
+            android:layout_height="@dimen/interop_button_size"
+            android:onClick="changeCount"
+            android:text="+"
+            android:textSize="@dimen/interop_text_size" />
+
+        <TextView
+            android:id="@+id/tv_exchange_blue"
+            android:layout_width="@dimen/interop_button_size"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/interop_vert_switch_padding"
+            android:layout_marginTop="@dimen/interop_vert_switch_padding"
+            android:background="@color/frcBlue"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/interop_text_size" />
+
+        <Button
+            android:id="@+id/btn_dec_exchange_blue"
+            android:layout_width="@dimen/interop_button_size"
+            android:layout_height="@dimen/interop_button_size"
+            android:onClick="changeCount"
+            android:text="-"
+            android:textSize="@dimen/interop_text_size" />
+    </LinearLayout>
+
+    <!-- "End of Match" button -->
+    <Button
+        android:id="@+id/btn_end_game"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/item_vertical_margin_big"
+        android:onClick="onButtonClicked"
+        android:padding="@dimen/item_horizontal_margin_small"
+        android:text="@string/end_of_match"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+</RelativeLayout>

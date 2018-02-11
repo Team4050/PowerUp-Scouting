@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    tools:context="org.biohazard4050.powerupscouting.MatchInfo">
+
+    <!-- App Name header -->
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/match_info"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+    <!-- Container for MatchInfo form controls -->
+    <RelativeLayout
+        android:id="@+id/form_match_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/item_vertical_margin_big">
+
+        <!-- "Scouter Name" label -->
+        <TextView
+            android:id="@+id/scouterNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:ems="7"
+            android:text="@string/scouter_name"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/frcRed"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- Scouter name edit text -->
+        <EditText
+            android:id="@+id/scouterNameEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/scouterNameTextView"
+            android:layout_marginStart="@dimen/item_horizontal_margin_small"
+            android:layout_toEndOf="@id/scouterNameTextView"
+            android:ems="8"
+            android:inputType="text"
+            android:maxLength="20"
+            android:textSize="24sp" />
+
+        <!-- "Match Number" label -->
+        <TextView
+            android:id="@+id/matchNumberTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/scouterNameTextView"
+            android:layout_marginTop="@dimen/item_vertical_margin_big"
+            android:ems="7"
+            android:text="@string/match_number"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/frcRed"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- Match number edit text -->
+        <EditText
+            android:id="@+id/matchNumberEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/matchNumberTextView"
+            android:layout_marginStart="@dimen/item_horizontal_margin_small"
+            android:layout_toEndOf="@id/matchNumberTextView"
+            android:ems="2"
+            android:inputType="number"
+            android:maxLength="2"
+            android:textSize="24sp" />
+
+        <!-- "Rematch" placeholder -->
+        <TextView
+            android:id="@+id/rematchPlaceholderTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/matchNumberTextView"
+            android:layout_marginTop="@dimen/item_vertical_margin_small"
+            android:ems="7"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/frcRed"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- "Rematch" checkbox -->
+        <CheckBox
+            android:id="@+id/rematchCheckbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/rematchPlaceholderTextView"
+            android:layout_marginStart="@dimen/item_horizontal_margin_small"
+            android:layout_toEndOf="@id/rematchPlaceholderTextView"
+            android:onClick="onCheckboxClicked"
+            android:text="@string/rematch"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- "Team Number" label -->
+        <TextView
+            android:id="@+id/teamNumberTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/rematchPlaceholderTextView"
+            android:layout_marginTop="@dimen/item_vertical_margin_small"
+            android:ems="7"
+            android:text="@string/team_number"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/frcRed"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- Team number edit text -->
+        <EditText
+            android:id="@+id/teamNumberEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/teamNumberTextView"
+            android:layout_marginStart="@dimen/item_horizontal_margin_small"
+            android:layout_toEndOf="@id/teamNumberTextView"
+            android:ems="3"
+            android:inputType="number"
+            android:maxLength="4"
+            android:textSize="24sp" />
+
+        <!-- "Alliance Color" label -->
+        <TextView
+            android:id="@+id/allianceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/teamNumberTextView"
+            android:layout_marginTop="@dimen/item_vertical_margin_big"
+            android:ems="7"
+            android:text="@string/alliance_color"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/frcRed"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- Alliance radio buttons -->
+        <RadioGroup
+            android:id="@+id/allianceRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/allianceTextView"
+            android:layout_marginStart="@dimen/item_horizontal_margin_small"
+            android:layout_toEndOf="@id/allianceTextView">
+
+            <!-- Red alliance radio button -->
+            <RadioButton
+                android:id="@+id/allianceRedRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/alliance_red"
+                android:textColor="@color/frcRed"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- Blue alliance radio button -->
+            <RadioButton
+                android:id="@+id/allianceBlueRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/alliance_blue"
+                android:textColor="@color/frcBlue"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </RadioGroup>
+
+        <!-- "Starting Position" label -->
+        <TextView
+            android:id="@+id/positionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/allianceRadioGroup"
+            android:layout_marginTop="@dimen/item_vertical_margin_big"
+            android:ems="7"
+            android:text="@string/position_start"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/frcRed"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- Starting Position radio buttons -->
+        <RadioGroup
+            android:id="@+id/positionRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/positionTextView"
+            android:layout_marginStart="@dimen/item_horizontal_margin_small"
+            android:layout_toEndOf="@id/positionTextView">
+
+            <!-- Far position radio button -->
+            <RadioButton
+                android:id="@+id/positionFarRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/position_far"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- Middle position radio button -->
+            <RadioButton
+                android:id="@+id/positionMiddleRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/position_middle"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- Near position radio button -->
+            <RadioButton
+                android:id="@+id/positionNearRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/position_Near"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </RadioGroup>
+    </RelativeLayout>
+
+    <!-- "Begin Scouting" button -->
+    <Button
+        android:id="@+id/beginScouting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/form_match_info"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/item_vertical_margin_big"
+        android:onClick="onButtonClicked"
+        android:padding="@dimen/item_horizontal_margin_small"
+        android:text="@string/period_autonomous"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+</RelativeLayout>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    tools:context="org.biohazard4050.powerupscouting.EndOfMatch">
+
+    <!-- Page header -->
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/end_of_match"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+    <!-- "End State" header -->
+    <TextView
+        android:id="@+id/endPositionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleTextView"
+        android:layout_marginTop="@dimen/item_vertical_margin_big"
+        android:text="@string/eom_end_state"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <!-- End position radio buttons -->
+    <RadioGroup
+        android:id="@+id/endStateRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/endPositionTextView"
+        android:layout_marginLeft="@dimen/item_horizontal_margin_big">
+
+        <!-- "Parked at Scale" radio button -->
+        <RadioButton
+            android:id="@+id/parkedRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/end_parked"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- "Attempted to Climb (Failed)" radio button -->
+        <RadioButton
+            android:id="@+id/climbFailedRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/end_climb_failed"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- "Climbed Successfully" radio button -->
+        <RadioButton
+            android:id="@+id/climbSuccessRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/end_climb_success"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </RadioGroup>
+
+    <!-- "Penalties" header -->
+    <TextView
+        android:id="@+id/penaltiesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/endStateRadioGroup"
+        android:layout_marginTop="@dimen/item_vertical_margin_big"
+        android:text="@string/eom_penalties"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/penalties_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/penaltiesTextView"
+        android:layout_marginLeft="@dimen/item_horizontal_margin_big"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/penalties1_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/checkbox_penalty_yellow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onCheckboxClicked"
+                android:text="@string/penalty_card_yellow"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:id="@+id/checkbox_penalty_red"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onCheckboxClicked"
+                android:text="@string/penalty_card_red"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/penatlies2_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/item_horizontal_margin_big"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/checkbox_penalty_foul"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onCheckboxClicked"
+                android:text="@string/penalty_foul"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:id="@+id/checkbox_penalty_disabled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onCheckboxClicked"
+                android:text="@string/penalty_disabled"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- "Match Notes" button -->
+    <Button
+        android:id="@+id/interopPeriod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/penalties_layout"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/item_vertical_margin_big"
+        android:onClick="onButtonClicked"
+        android:padding="@dimen/item_horizontal_margin_small"
+        android:text="@string/match_notes"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+</RelativeLayout>

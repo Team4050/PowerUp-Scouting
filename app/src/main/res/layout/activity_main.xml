@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.biohazard4050.powerupscouting.MainActivity">
+
+    <!-- Biohazard logo background image -->
+    <ImageView
+        android:id="@+id/logoBiohazard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/logo_biohazard"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo_biohazard" />
+
+    <!-- PowerUp logo background image -->
+    <ImageView
+        android:id="@+id/logoPowerUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/item_vertical_margin_big"
+        android:contentDescription="@string/logo_powerup"
+        android:src="@drawable/logo_powerup" />
+
+    <!-- "Begin Scouting" button -->
+    <Button
+        android:id="@+id/mainBeginScouting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logoPowerUp"
+        android:layout_centerInParent="true"
+        android:onClick="onButtonClicked"
+        android:padding="@dimen/item_horizontal_margin_small"
+        android:text="@string/begin_scouting"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>
