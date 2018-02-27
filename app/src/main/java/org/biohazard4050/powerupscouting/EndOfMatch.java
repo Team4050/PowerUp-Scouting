@@ -19,11 +19,11 @@ import org.biohazard4050.powerupscouting.data.ScoutingDbHelper;
 
 public class EndOfMatch extends AppCompatActivity {
 
-    public String endState = "";
-    public String penaltyYellow = "N";
-    public String penaltyRed = "N";
-    public String penaltyFoul = "N";
-    public String penaltyDisabled = "N";
+    private String endState = ScoutingData.END_STATE_NOTHING;
+    private String penaltyYellow = ScoutingData.CHECKBOX_UNCHECKED;
+    private String penaltyRed = ScoutingData.CHECKBOX_UNCHECKED;
+    private String penaltyFoul = ScoutingData.CHECKBOX_UNCHECKED;
+    private String penaltyDisabled = ScoutingData.CHECKBOX_UNCHECKED;
 
     private String matchNumber = "???";
     private String teamNumber = "???";
@@ -54,6 +54,10 @@ public class EndOfMatch extends AppCompatActivity {
 
         setTitle("End of Match [ Match: " + matchNumber + " | Team: " + teamNumber + " (" +
                 allianceColor + ") ]");
+
+        RadioButton didNothingRadio = (RadioButton) findViewById(R.id.nothingRadioButton);
+
+        didNothingRadio.setChecked(true);
     }
 
     public void onButtonClicked(View view) {
@@ -72,28 +76,28 @@ public class EndOfMatch extends AppCompatActivity {
         boolean isChecked = ((CheckBox) view).isChecked();
 
         switch (view.getId()) {
-            case R.id.checkbox_penalty_yellow:
+            case R.id.penaltyYellowCheckbox:
                 if (isChecked) {
                     penaltyYellow = ScoutingData.CHECKBOX_CHECKED;
                 } else {
                     penaltyYellow = ScoutingData.CHECKBOX_UNCHECKED;
                 }
                 break;
-            case R.id.checkbox_penalty_red:
+            case R.id.penaltyRedCheckbox:
                 if (isChecked) {
                     penaltyRed = ScoutingData.CHECKBOX_CHECKED;
                 } else {
                     penaltyRed = ScoutingData.CHECKBOX_UNCHECKED;
                 }
                 break;
-            case R.id.checkbox_penalty_foul:
+            case R.id.penaltyFoulCheckbox:
                 if (isChecked) {
                     penaltyFoul = ScoutingData.CHECKBOX_CHECKED;
                 } else {
                     penaltyFoul = ScoutingData.CHECKBOX_UNCHECKED;
                 }
                 break;
-            case R.id.checkbox_penalty_disabled:
+            case R.id.penaltyDisabledCheckbox:
                 if (isChecked) {
                     penaltyDisabled = ScoutingData.CHECKBOX_CHECKED;
                 } else {
@@ -107,6 +111,11 @@ public class EndOfMatch extends AppCompatActivity {
         boolean isChecked = ((RadioButton) view).isChecked();
 
         switch (view.getId()) {
+            case R.id.nothingRadioButton:
+                if (isChecked) {
+                    endState = ScoutingData.END_STATE_NOTHING;
+                }
+                break;
             case R.id.parkedRadioButton:
                 if (isChecked) {
                     endState = ScoutingData.END_STATE_PARKED;
@@ -174,7 +183,7 @@ public class EndOfMatch extends AppCompatActivity {
 
             scoutingDb.close();
 
-            if (finalized.equals("Y")) {
+            if (finalized.equals(ScoutingData.CHECKBOX_CHECKED)) {
                 this.finish();
             }
         }

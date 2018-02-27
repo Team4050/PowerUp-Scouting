@@ -18,7 +18,7 @@
 
     <!-- Notes textbox -->
     <EditText
-        android:id="@+id/match_comments"
+        android:id="@+id/matchNotesEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/titleTextView"
@@ -36,10 +36,10 @@
 
     <!-- "Finalize Match" button -->
     <Button
-        android:id="@+id/finalize_match"
+        android:id="@+id/finalizeMatchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/match_comments"
+        android:layout_below="@id/matchNotesEditText"
         android:layout_centerInParent="true"
         android:layout_marginTop="@dimen/item_vertical_margin_big"
         android:onClick="onButtonClicked"

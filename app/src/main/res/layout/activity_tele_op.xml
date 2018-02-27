@@ -8,6 +8,7 @@
 
     <!-- Playing field background image -->
     <ImageView
+        android:id="@+id/playingFieldImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/playing_field"
@@ -16,16 +17,16 @@
 
     <!-- Controls for RED EXCHANGE -->
     <LinearLayout
-        android:id="@+id/ll_exchange_red"
+        android:id="@+id/exchangeRedLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_toLeftOf="@id/ll_switch_red"
+        android:layout_toLeftOf="@id/switchRedLayout"
         android:orientation="vertical"
         android:paddingRight="@dimen/interop_hori_exchange_padding">
 
         <Button
-            android:id="@+id/btn_inc_exchange_red"
+            android:id="@+id/incExchangeRedButton"
             android:layout_width="@dimen/interop_button_size"
             android:layout_height="@dimen/interop_button_size"
             android:onClick="changeCount"
@@ -33,7 +34,7 @@
             android:textSize="@dimen/interop_text_size" />
 
         <TextView
-            android:id="@+id/tv_exchange_red"
+            android:id="@+id/exchangeRedCountTextView"
             android:layout_width="@dimen/interop_button_size"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/interop_vert_switch_padding"
@@ -45,7 +46,7 @@
             android:textSize="@dimen/interop_text_size" />
 
         <Button
-            android:id="@+id/btn_dec_exchange_red"
+            android:id="@+id/decExchangeRedButton"
             android:layout_width="@dimen/interop_button_size"
             android:layout_height="@dimen/interop_button_size"
             android:onClick="changeCount"
@@ -55,16 +56,16 @@
 
     <!-- Controls for RED SWITCH -->
     <LinearLayout
-        android:id="@+id/ll_switch_red"
+        android:id="@+id/switchRedLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_toLeftOf="@id/ll_scale"
+        android:layout_toLeftOf="@id/scaleLayout"
         android:orientation="vertical"
         android:paddingRight="@dimen/interop_hori_scale_padding">
 
         <Button
-            android:id="@+id/btn_inc_switch_red"
+            android:id="@+id/incSwitchRedButton"
             android:layout_width="@dimen/interop_button_size"
             android:layout_height="@dimen/interop_button_size"
             android:onClick="changeCount"
@@ -72,7 +73,7 @@
             android:textSize="@dimen/interop_text_size" />
 
         <TextView
-            android:id="@+id/tv_switch_red"
+            android:id="@+id/switchRedCountTextView"
             android:layout_width="@dimen/interop_button_size"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/interop_vert_switch_padding"
@@ -84,7 +85,7 @@
             android:textSize="@dimen/interop_text_size" />
 
         <Button
-            android:id="@+id/btn_dec_switch_red"
+            android:id="@+id/decSwitchRedButton"
             android:layout_width="@dimen/interop_button_size"
             android:layout_height="@dimen/interop_button_size"
             android:onClick="changeCount"
@@ -94,14 +95,14 @@
 
     <!-- Controls for SCALE -->
     <LinearLayout
-        android:id="@+id/ll_scale"
+        android:id="@+id/scaleLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/btn_inc_scale"
+            android:id="@+id/incScaleButton"
             android:layout_width="@dimen/interop_button_size"
             android:layout_height="@dimen/interop_button_size"
             android:onClick="changeCount"
@@ -109,7 +110,7 @@
             android:textSize="@dimen/interop_text_size" />
 
         <TextView
-            android:id="@+id/tv_scale_count"
+            android:id="@+id/scaleCountTextView"
             android:layout_width="56sp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/interop_vert_scale_padding"
@@ -121,7 +122,7 @@
             android:textSize="@dimen/interop_text_size" />
 
         <Button
-            android:id="@+id/btn_dec_scale"
+            android:id="@+id/decScaleButton"
             android:layout_width="@dimen/interop_button_size"
             android:layout_height="@dimen/interop_button_size"
             android:onClick="changeCount"
@@ -131,16 +132,16 @@
 
     <!-- Controls for BLUE SWITCH -->
     <LinearLayout
-        android:id="@+id/ll_switch_blue"
+        android:id="@+id/switchBlueLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_toRightOf="@id/ll_scale"
+        android:layout_toRightOf="@id/scaleLayout"
         android:orientation="vertical"
         android:paddingLeft="@dimen/interop_hori_scale_padding">
 
         <Button
-            android:id="@+id/btn_inc_switch_blue"
+            android:id="@+id/incSwitchBlueButton"
             android:layout_width="@dimen/interop_button_size"
             android:layout_height="@dimen/interop_button_size"
             android:onClick="changeCount"
@@ -148,7 +149,7 @@
             android:textSize="@dimen/interop_text_size" />
 
         <TextView
-            android:id="@+id/tv_switch_blue"
+            android:id="@+id/switchBlueCountTextView"
             android:layout_width="@dimen/interop_button_size"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/interop_vert_switch_padding"
@@ -160,7 +161,7 @@
             android:textSize="@dimen/interop_text_size" />
 
         <Button
-            android:id="@+id/btn_dec_switch_blue"
+            android:id="@+id/decSwitchBlueButton"
             android:layout_width="@dimen/interop_button_size"
             android:layout_height="@dimen/interop_button_size"
             android:onClick="changeCount"
@@ -170,16 +171,16 @@
 
     <!-- Controls for BLUE EXCHANGE -->
     <LinearLayout
-        android:id="@+id/ll_exchange_blue"
+        android:id="@+id/exchangeBlueLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_toRightOf="@id/ll_switch_blue"
+        android:layout_toRightOf="@id/switchBlueLayout"
         android:orientation="vertical"
         android:paddingLeft="@dimen/interop_hori_exchange_padding">
 
         <Button
-            android:id="@+id/btn_inc_exchange_blue"
+            android:id="@+id/incExchangeBlueButton"
             android:layout_width="@dimen/interop_button_size"
             android:layout_height="@dimen/interop_button_size"
             android:onClick="changeCount"
@@ -187,7 +188,7 @@
             android:textSize="@dimen/interop_text_size" />
 
         <TextView
-            android:id="@+id/tv_exchange_blue"
+            android:id="@+id/exchangeBlueCountTextView"
             android:layout_width="@dimen/interop_button_size"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/interop_vert_switch_padding"
@@ -199,7 +200,7 @@
             android:textSize="@dimen/interop_text_size" />
 
         <Button
-            android:id="@+id/btn_dec_exchange_blue"
+            android:id="@+id/decExchangeBlueButton"
             android:layout_width="@dimen/interop_button_size"
             android:layout_height="@dimen/interop_button_size"
             android:onClick="changeCount"
@@ -209,7 +210,7 @@
 
     <!-- "End of Match" button -->
     <Button
-        android:id="@+id/btn_end_game"
+        android:id="@+id/EndOfMatchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

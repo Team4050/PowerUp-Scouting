@@ -35,6 +35,17 @@
         android:layout_below="@id/endPositionTextView"
         android:layout_marginLeft="@dimen/item_horizontal_margin_big">
 
+        <!-- "Did Nothing" radio button -->
+        <RadioButton
+            android:id="@+id/nothingRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/end_nothing"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
         <!-- "Parked at Scale" radio button -->
         <RadioButton
             android:id="@+id/parkedRadioButton"
@@ -81,7 +92,7 @@
         android:textStyle="bold" />
 
     <LinearLayout
-        android:id="@+id/penalties_layout"
+        android:id="@+id/penaltiesLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/penaltiesTextView"
@@ -89,13 +100,13 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:id="@+id/penalties1_layout"
+            android:id="@+id/penaltiesCardsLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <CheckBox
-                android:id="@+id/checkbox_penalty_yellow"
+                android:id="@+id/penaltyYellowCheckbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="onCheckboxClicked"
@@ -105,7 +116,7 @@
                 android:textStyle="bold" />
 
             <CheckBox
-                android:id="@+id/checkbox_penalty_red"
+                android:id="@+id/penaltyRedCheckbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="onCheckboxClicked"
@@ -117,14 +128,14 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/penatlies2_layout"
+            android:id="@+id/penaltiesOtherLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/item_horizontal_margin_big"
             android:orientation="vertical">
 
             <CheckBox
-                android:id="@+id/checkbox_penalty_foul"
+                android:id="@+id/penaltyFoulCheckbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="onCheckboxClicked"
@@ -134,7 +145,7 @@
                 android:textStyle="bold" />
 
             <CheckBox
-                android:id="@+id/checkbox_penalty_disabled"
+                android:id="@+id/penaltyDisabledCheckbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="onCheckboxClicked"
@@ -147,10 +158,10 @@
 
     <!-- "Match Notes" button -->
     <Button
-        android:id="@+id/interopPeriod"
+        android:id="@+id/matchNotesButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/penalties_layout"
+        android:layout_below="@id/penaltiesLayout"
         android:layout_centerInParent="true"
         android:layout_marginTop="@dimen/item_vertical_margin_big"
         android:onClick="onButtonClicked"

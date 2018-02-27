@@ -15,15 +15,21 @@ import android.widget.Toast;
 import org.biohazard4050.powerupscouting.data.ScoutingContract.ScoutingData;
 import org.biohazard4050.powerupscouting.data.ScoutingDbHelper;
 
-// TODO: Collect timestamp data for cube delivery
+import java.util.Locale;
 
 public class TeleOp extends AppCompatActivity {
 
-    public int countExchangeBlue = 0;
-    public int countExchangeRed = 0;
-    public int countScale = 0;
-    public int countSwitchBlue = 0;
-    public int countSwitchRed = 0;
+    private int countExchangeBlue = 0;
+    private int countExchangeRed = 0;
+    private int countScale = 0;
+    private int countSwitchBlue = 0;
+    private int countSwitchRed = 0;
+    private String averageCubeTime = "-1.0";
+
+    private float[] secondsToDeliver;
+    private int cubeArrayIndex = 0;
+    private long previousCubeTime;
+    private long currentCubeTime;
 
     private String matchNumber;
     private String teamNumber;
@@ -46,49 +52,58 @@ public class TeleOp extends AppCompatActivity {
 
         if (allianceColor.equals("RED")) {
             countExchangeBlue = -1;
-            LinearLayout exchangeLayout = (LinearLayout) findViewById(R.id.ll_exchange_blue);
+            LinearLayout exchangeLayout = (LinearLayout) findViewById(R.id.exchangeBlueLayout);
             exchangeLayout.setVisibility(LinearLayout.INVISIBLE);
         } else {
             countExchangeRed = -1;
-            LinearLayout exchangeLayout = (LinearLayout) findViewById(R.id.ll_exchange_red);
+            LinearLayout exchangeLayout = (LinearLayout) findViewById(R.id.exchangeRedLayout);
             exchangeLayout.setVisibility(LinearLayout.INVISIBLE);
         }
 
         setTitle("TeleOp [ Match: " + matchNumber + " | Team: " + teamNumber + " (" +
                 allianceColor + ") ]");
+
+        secondsToDeliver = new float[99];
+        previousCubeTime = System.currentTimeMillis();
+        currentCubeTime  = System.currentTimeMillis();
     }
 
     public void changeCount(View view) {
+        previousCubeTime = currentCubeTime;
+        currentCubeTime = System.currentTimeMillis();
+        secondsToDeliver[cubeArrayIndex] = (((float) (currentCubeTime - previousCubeTime)) / 1000.0f);
+        cubeArrayIndex++;
+
         switch (view.getId()) {
-            case R.id.btn_dec_exchange_red:
-                countExchangeRed = updateCountAndDisplay(countExchangeRed, -1, R.id.tv_exchange_red);
+            case R.id.decExchangeRedButton:
+                countExchangeRed = updateCountAndDisplay(countExchangeRed, -1, R.id.exchangeRedCountTextView);
                 break;
-            case R.id.btn_inc_exchange_red:
-                countExchangeRed = updateCountAndDisplay(countExchangeRed, 1, R.id.tv_exchange_red);
+            case R.id.incExchangeRedButton:
+                countExchangeRed = updateCountAndDisplay(countExchangeRed, 1, R.id.exchangeRedCountTextView);
                 break;
-            case R.id.btn_dec_switch_red:
-                countSwitchRed = updateCountAndDisplay(countSwitchRed, -1, R.id.tv_switch_red);
+            case R.id.decSwitchRedButton:
+                countSwitchRed = updateCountAndDisplay(countSwitchRed, -1, R.id.switchRedCountTextView);
                 break;
-            case R.id.btn_inc_switch_red:
-                countSwitchRed = updateCountAndDisplay(countSwitchRed, 1, R.id.tv_switch_red);
+            case R.id.incSwitchRedButton:
+                countSwitchRed = updateCountAndDisplay(countSwitchRed, 1, R.id.switchRedCountTextView);
                 break;
-            case R.id.btn_dec_scale:
-                countScale = updateCountAndDisplay(countScale, -1, R.id.tv_scale_count);
+            case R.id.decScaleButton:
+                countScale = updateCountAndDisplay(countScale, -1, R.id.scaleCountTextView);
                 break;
-            case R.id.btn_inc_scale:
-                countScale = updateCountAndDisplay(countScale, 1, R.id.tv_scale_count);
+            case R.id.incScaleButton:
+                countScale = updateCountAndDisplay(countScale, 1, R.id.scaleCountTextView);
                 break;
-            case R.id.btn_dec_switch_blue:
-                countSwitchBlue = updateCountAndDisplay(countSwitchBlue, -1, R.id.tv_switch_blue);
+            case R.id.decSwitchBlueButton:
+                countSwitchBlue = updateCountAndDisplay(countSwitchBlue, -1, R.id.switchBlueCountTextView);
                 break;
-            case R.id.btn_inc_switch_blue:
-                countSwitchBlue = updateCountAndDisplay(countSwitchBlue, 1, R.id.tv_switch_blue);
+            case R.id.incSwitchBlueButton:
+                countSwitchBlue = updateCountAndDisplay(countSwitchBlue, 1, R.id.switchBlueCountTextView);
                 break;
-            case R.id.btn_dec_exchange_blue:
-                countExchangeBlue = updateCountAndDisplay(countExchangeBlue, -1, R.id.tv_exchange_blue);
+            case R.id.decExchangeBlueButton:
+                countExchangeBlue = updateCountAndDisplay(countExchangeBlue, -1, R.id.exchangeBlueCountTextView);
                 break;
-            case R.id.btn_inc_exchange_blue:
-                countExchangeBlue = updateCountAndDisplay(countExchangeBlue, 1, R.id.tv_exchange_blue);
+            case R.id.incExchangeBlueButton:
+                countExchangeBlue = updateCountAndDisplay(countExchangeBlue, 1, R.id.exchangeBlueCountTextView);
                 break;
             default:
                 break;
@@ -109,6 +124,21 @@ public class TeleOp extends AppCompatActivity {
     }
 
     public void onButtonClicked(View view) {
+        float totalSeconds = 0;
+
+        if (cubeArrayIndex == 0) {
+            averageCubeTime = "0.0";
+        } else {
+            for (int idx = 0; idx < cubeArrayIndex; idx++)
+            {
+                totalSeconds += secondsToDeliver[idx];
+            }
+
+            float averageSeconds = (totalSeconds / (float) cubeArrayIndex);
+
+            averageCubeTime = String.format(Locale.US,"%.1f", averageSeconds);
+        }
+
         writeToDB();
 
         Intent theIntent = new Intent(TeleOp.this, EndOfMatch.class);
@@ -130,6 +160,7 @@ public class TeleOp extends AppCompatActivity {
         values.put(ScoutingData.COLUMN_TELE_SCALE, countScale);
         values.put(ScoutingData.COLUMN_TELE_BLUE_SWITCH, countSwitchBlue);
         values.put(ScoutingData.COLUMN_TELE_BLUE_EXCHANGE, countExchangeBlue);
+        values.put(ScoutingData.COLUMN_TELE_AVE_CUBE_TIME, averageCubeTime);
 
         int updateCount = scoutingDb.update(ScoutingData.TABLE_STAGING_DATA, values, null, null);
 
@@ -169,7 +200,7 @@ public class TeleOp extends AppCompatActivity {
 
             scoutingDb.close();
 
-            if (finalized.equals("Y")) {
+            if (finalized.equals(ScoutingData.CHECKBOX_CHECKED)) {
                 this.finish();
             }
         }

@@ -1,6 +1,6 @@
 <resources>
-    <string name="alliance_color">Alliance Color:</string>
     <string name="alliance_blue">Blue Alliance</string>
+    <string name="alliance_color">Alliance Color:</string>
     <string name="alliance_red">Red Alliance</string>
     <string name="app_name">PowerUp Scouting</string>
     <string name="auto_baseline">Crossed Baseline</string>
@@ -8,9 +8,10 @@
     <string name="auto_switch">Power Cube to Switch</string>
     <string name="autonomous">Autonomous Period</string>
     <string name="begin_scouting">Begin Scouting</string>
-    <string name="match_notes">Match Notes</string>
+    <string name="dump_data_file">Dump Data File</string>
     <string name="end_climb_failed">Attempted to Climb (Failed)</string>
     <string name="end_climb_success">Climbed Successfully</string>
+    <string name="end_nothing">Did Nothing</string>
     <string name="end_of_match">End of Match</string>
     <string name="end_parked">Parked at Scale</string>
     <string name="eom_end_state">End State</string>
@@ -19,6 +20,7 @@
     <string name="logo_biohazard">Biohazard Logo</string>
     <string name="logo_powerup">FIRST PowerUp Logo</string>
     <string name="match_info">Match Information</string>
+    <string name="match_notes">Match Notes</string>
     <string name="match_number">Match Number:</string>
     <string name="penalty_card_red">Red Card</string>
     <string name="penalty_card_yellow">Yellow Card</string>
@@ -29,8 +31,9 @@
     <string name="playing_field">FIRST PowerUp Playing Field</string>
     <string name="position_far">Far</string>
     <string name="position_middle">Middle</string>
-    <string name="position_Near">Near</string>
-    <string name="position_start">Starting Position:</string>
+    <string name="position_near">Near</string>
+    <string name="position_start">Robot Position:</string>
+    <string name="position_station">Driver\'s Station:</string>
     <string name="rematch">Rematch</string>
     <string name="scouter_name">Scouter Name:</string>
     <string name="team_number">Team Number:</string>

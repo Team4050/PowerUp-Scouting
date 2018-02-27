@@ -30,15 +30,17 @@ public class MatchInfo extends AppCompatActivity {
 
     private String scouterName = "";
     private String matchNumber = "";
-    private String rematchInd = "N";
+    private String rematchInd = ScoutingData.CHECKBOX_UNCHECKED;
     private String teamNumber = "";
     private String allianceColor = "";
-    private String startPosition = "";
+    private String stationPosition = "";
+    private String robotPosition = "";
 
     private boolean scouterEntered = false;
     private boolean matchEntered = false;
     private boolean teamEntered = false;
     private boolean allianceSelected = false;
+    private boolean stationSelected = false;
     private boolean positionSelected = false;
 
     @Override
@@ -63,9 +65,9 @@ public class MatchInfo extends AppCompatActivity {
 
     public void onCheckboxClicked(View view) {
         if (((CheckBox) view).isChecked()) {
-            rematchInd = "Y";
+            rematchInd = ScoutingData.CHECKBOX_CHECKED;
         } else {
-            rematchInd = "N";
+            rematchInd = ScoutingData.CHECKBOX_UNCHECKED;
         }
     }
 
@@ -74,7 +76,7 @@ public class MatchInfo extends AppCompatActivity {
         String errorMessage = "";
 
         if (!scouterEntered || !matchEntered || !teamEntered ||
-                !allianceSelected || !positionSelected) {
+            !allianceSelected || !stationSelected || !positionSelected) {
             validationError = true;
             errorMessage += "\r\nYOU MUST COMPLETE THE ENTIRE FORM\r\n" +
                     ">> Look for fields where the label is red <<\r\n";
@@ -82,7 +84,7 @@ public class MatchInfo extends AppCompatActivity {
 
         int matchCount = existingMatchRecords();
 
-        if (rematchInd == "Y") {
+        if (rematchInd == ScoutingData.CHECKBOX_CHECKED) {
             if (matchCount == 0) {
                 validationError = true;
                 errorMessage += "\r\n!! NO PREVIOUS MATCH EXISTS !!\r\n" +
@@ -116,7 +118,7 @@ public class MatchInfo extends AppCompatActivity {
 
             writeToDB();
 
-            Intent theIntent = new Intent(MatchInfo.this, Autonomous.class);
+            Intent theIntent = new Intent(this, Autonomous.class);
 
             theIntent.putExtra("MATCH_NUMBER", matchNumber);
             theIntent.putExtra("TEAM_NUMBER", teamNumber);
@@ -151,11 +153,6 @@ public class MatchInfo extends AppCompatActivity {
 
         scoutingDb.close();
 
-        Toast missingDataToast = Toast.makeText(getApplicationContext(),
-                "matchCount: " + matchCount, Toast.LENGTH_SHORT);
-        missingDataToast.setGravity(Gravity.CENTER, 0, 150);
-        missingDataToast.show();
-
         return matchCount;
     }
 
@@ -181,27 +178,54 @@ public class MatchInfo extends AppCompatActivity {
                     }
                 }
                 break;
-            case R.id.positionFarRadioButton:
+            case R.id.stationFarRadioButton:
                 if (isChecked) {
-                    startPosition = ScoutingData.POSITION_FAR;
+                    stationPosition = ScoutingData.POSITION_FAR;
+                    if (!stationSelected) {
+                        stationSelected = true;
+                        ((TextView) findViewById(R.id.stationTextView)).setTextColor(COLOR_PRIMARY_DARK);
+                    }
+                }
+                break;
+            case R.id.stationMiddleRadioButton:
+                if (isChecked) {
+                    stationPosition = ScoutingData.POSITION_MIDDLE;
+                    if (!stationSelected) {
+                        stationSelected = true;
+                        ((TextView) findViewById(R.id.stationTextView)).setTextColor(COLOR_PRIMARY_DARK);
+                    }
+                }
+                break;
+            case R.id.stationNearRadioButton:
+                if (isChecked) {
+                    stationPosition = ScoutingData.POSITION_NEAR;
+                    if (!stationSelected) {
+                        stationSelected = true;
+                        ((TextView) findViewById(R.id.stationTextView)).setTextColor(COLOR_PRIMARY_DARK);
+                    }
+                }
+                break;
+            case R.id.robotFarRadioButton:
+                if (isChecked) {
+                    robotPosition = ScoutingData.POSITION_FAR;
                     if (!positionSelected) {
                         positionSelected = true;
                         ((TextView) findViewById(R.id.positionTextView)).setTextColor(COLOR_PRIMARY_DARK);
                     }
                 }
                 break;
-            case R.id.positionMiddleRadioButton:
+            case R.id.robotMiddleRadioButton:
                 if (isChecked) {
-                    startPosition = ScoutingData.POSITION_MIDDLE;
+                    robotPosition = ScoutingData.POSITION_MIDDLE;
                     if (!positionSelected) {
                         positionSelected = true;
                         ((TextView) findViewById(R.id.positionTextView)).setTextColor(COLOR_PRIMARY_DARK);
                     }
                 }
                 break;
-            case R.id.positionNearRadioButton:
+            case R.id.robotNearRadioButton:
                 if (isChecked) {
-                    startPosition = ScoutingData.POSITION_NEAR;
+                    robotPosition = ScoutingData.POSITION_NEAR;
                     if (!positionSelected) {
                         positionSelected = true;
                         ((TextView) findViewById(R.id.positionTextView)).setTextColor(COLOR_PRIMARY_DARK);
@@ -245,7 +269,8 @@ public class MatchInfo extends AppCompatActivity {
         values.put(ScoutingData.COLUMN_INFO_REMATCH_IND, rematchInd);
         values.put(ScoutingData.COLUMN_INFO_TEAM_NUMBER, teamNumber);
         values.put(ScoutingData.COLUMN_INFO_ALLIANCE_COLOR, allianceColor);
-        values.put(ScoutingData.COLUMN_INFO_STARTING_POSITION, startPosition);
+        values.put(ScoutingData.COLUMN_INFO_STATION_POSITION, stationPosition);
+        values.put(ScoutingData.COLUMN_INFO_ROBOT_POSITION, robotPosition);
         values.put(ScoutingData.COLUMN_FINALIZED_IND, ScoutingData.CHECKBOX_UNCHECKED);
 
         String toastMessage = "NO_ERROR";
@@ -337,7 +362,7 @@ public class MatchInfo extends AppCompatActivity {
 
             scoutingDb.close();
 
-            if (finalized.equals("Y")) {
+            if (finalized.equals(ScoutingData.CHECKBOX_CHECKED)) {
                 this.finish();
             }
         }

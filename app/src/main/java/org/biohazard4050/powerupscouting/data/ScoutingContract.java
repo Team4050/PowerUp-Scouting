@@ -15,7 +15,8 @@ public final class ScoutingContract {
         public static final String COLUMN_INFO_REMATCH_IND = "rematch_ind";
         public static final String COLUMN_INFO_TEAM_NUMBER = "team_number";
         public static final String COLUMN_INFO_ALLIANCE_COLOR = "alliance_color";
-        public static final String COLUMN_INFO_STARTING_POSITION = "starting_position";
+        public static final String COLUMN_INFO_STATION_POSITION = "station_position";
+        public static final String COLUMN_INFO_ROBOT_POSITION = "robot_position";
         public static final String COLUMN_AUTO_BASELINE_IND = "baseline_ind";
         public static final String COLUMN_AUTO_SWITCH_IND = "switch_ind";
         public static final String COLUMN_AUTO_SCALE_IND = "scale_ind";
@@ -24,6 +25,7 @@ public final class ScoutingContract {
         public static final String COLUMN_TELE_SCALE = "scale_total";
         public static final String COLUMN_TELE_BLUE_SWITCH = "blue_switch_total";
         public static final String COLUMN_TELE_BLUE_EXCHANGE = "blue_exchange_total";
+        public static final String COLUMN_TELE_AVE_CUBE_TIME = "average_cube_time";
         public static final String COLUMN_EOM_END_STATE = "eom_end_state";
         public static final String COLUMN_EOM_PENALTY_YELLOW = "penalty_yellow";
         public static final String COLUMN_EOM_PENALTY_RED = "penalty_red";
@@ -45,9 +47,10 @@ public final class ScoutingContract {
         public static final String POSITION_MIDDLE = "MIDDLE";
         public static final String POSITION_NEAR = "NEAR";
 
-        public static final String CHECKBOX_CHECKED = "Y";
-        public static final String CHECKBOX_UNCHECKED = "N";
+        public static final String CHECKBOX_CHECKED = "TRUE";
+        public static final String CHECKBOX_UNCHECKED = "FALSE";
 
+        public static final String END_STATE_NOTHING = "NOTHING";
         public static final String END_STATE_PARKED = "PARKED";
         public static final String END_STATE_FAILED = "FAILED";
         public static final String END_STATE_CLIMBED = "CLIMBED";

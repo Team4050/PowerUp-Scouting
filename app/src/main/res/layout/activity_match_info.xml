@@ -18,7 +18,7 @@
 
     <!-- Container for MatchInfo form controls -->
     <RelativeLayout
-        android:id="@+id/form_match_info"
+        android:id="@+id/matchInfoLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/titleTextView"
@@ -182,13 +182,68 @@
                 android:textStyle="bold" />
         </RadioGroup>
 
-        <!-- "Starting Position" label -->
+        <!-- "Driver's Station" label -->
+        <TextView
+            android:id="@+id/stationTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/allianceRadioGroup"
+            android:layout_marginTop="@dimen/item_vertical_margin_big"
+            android:ems="7"
+            android:text="@string/position_station"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/frcRed"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <!-- Driver's Station radio buttons -->
+        <RadioGroup
+            android:id="@+id/stationRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/stationTextView"
+            android:layout_marginStart="@dimen/item_horizontal_margin_small"
+            android:layout_toEndOf="@id/stationTextView">
+
+            <!-- Far station radio button -->
+            <RadioButton
+                android:id="@+id/stationFarRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/position_far"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- Middle station radio button -->
+            <RadioButton
+                android:id="@+id/stationMiddleRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/position_middle"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- Near station radio button -->
+            <RadioButton
+                android:id="@+id/stationNearRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/position_near"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </RadioGroup>
+
+        <!-- "Robot Position" label -->
         <TextView
             android:id="@+id/positionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@id/allianceRadioGroup"
+            android:layout_below="@id/stationRadioGroup"
             android:layout_marginTop="@dimen/item_vertical_margin_big"
             android:ems="7"
             android:text="@string/position_start"
@@ -197,9 +252,9 @@
             android:textSize="24sp"
             android:textStyle="bold" />
 
-        <!-- Starting Position radio buttons -->
+        <!-- Robot Position radio buttons -->
         <RadioGroup
-            android:id="@+id/positionRadioGroup"
+            android:id="@+id/robotRadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/positionTextView"
@@ -208,7 +263,7 @@
 
             <!-- Far position radio button -->
             <RadioButton
-                android:id="@+id/positionFarRadioButton"
+                android:id="@+id/robotFarRadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="onRadioButtonClicked"
@@ -218,7 +273,7 @@
 
             <!-- Middle position radio button -->
             <RadioButton
-                android:id="@+id/positionMiddleRadioButton"
+                android:id="@+id/robotMiddleRadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="onRadioButtonClicked"
@@ -228,22 +283,22 @@
 
             <!-- Near position radio button -->
             <RadioButton
-                android:id="@+id/positionNearRadioButton"
+                android:id="@+id/robotNearRadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="onRadioButtonClicked"
-                android:text="@string/position_Near"
+                android:text="@string/position_near"
                 android:textSize="24sp"
                 android:textStyle="bold" />
         </RadioGroup>
     </RelativeLayout>
 
-    <!-- "Begin Scouting" button -->
+    <!-- "Autonomous" button -->
     <Button
-        android:id="@+id/beginScouting"
+        android:id="@+id/autonomousButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/form_match_info"
+        android:layout_below="@id/matchInfoLayout"
         android:layout_centerInParent="true"
         android:layout_marginTop="@dimen/item_vertical_margin_big"
         android:onClick="onButtonClicked"

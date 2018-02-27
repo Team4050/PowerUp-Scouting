@@ -18,9 +18,9 @@ import org.biohazard4050.powerupscouting.data.ScoutingDbHelper;
 
 public class Autonomous extends AppCompatActivity {
 
-    public String crossedBaseline = ScoutingData.CHECKBOX_UNCHECKED;
-    public String cubeToSwitch = ScoutingData.CHECKBOX_UNCHECKED;
-    public String cubeToScale = ScoutingData.CHECKBOX_UNCHECKED;
+    private String crossedBaseline = ScoutingData.CHECKBOX_UNCHECKED;
+    private String cubeToSwitch = ScoutingData.CHECKBOX_UNCHECKED;
+    private String cubeToScale = ScoutingData.CHECKBOX_UNCHECKED;
 
     private String matchNumber;
     private String teamNumber;
@@ -57,13 +57,13 @@ public class Autonomous extends AppCompatActivity {
         boolean isChecked = ((CheckBox) view).isChecked();
 
         switch (view.getId()) {
-            case R.id.checkbox_baseline:
+            case R.id.baselineCheckbox:
                 crossedBaseline = (isChecked ? ScoutingData.CHECKBOX_CHECKED : ScoutingData.CHECKBOX_UNCHECKED);
                 break;
-            case R.id.checkbox_switch:
+            case R.id.switchCheckbox:
                 cubeToSwitch = (isChecked ? ScoutingData.CHECKBOX_CHECKED : ScoutingData.CHECKBOX_UNCHECKED);
                 break;
-            case R.id.checkbox_scale:
+            case R.id.scaleCheckbox:
                 cubeToScale = (isChecked ? ScoutingData.CHECKBOX_CHECKED : ScoutingData.CHECKBOX_UNCHECKED);
                 break;
         }
@@ -128,7 +128,7 @@ public class Autonomous extends AppCompatActivity {
 
             scoutingDb.close();
 
-            if (finalized.equals("Y")) {
+            if (finalized.equals(ScoutingData.CHECKBOX_CHECKED)) {
                 this.finish();
             }
         }

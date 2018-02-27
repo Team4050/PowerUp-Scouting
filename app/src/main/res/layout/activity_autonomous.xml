@@ -18,7 +18,7 @@
 
     <!-- Container for Autonomous form controls -->
     <LinearLayout
-        android:id="@+id/form_autonomous"
+        android:id="@+id/autonomousLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/titleTextView"
@@ -28,7 +28,7 @@
 
         <!-- "Crossed Baseline" checkbox -->
         <CheckBox
-            android:id="@+id/checkbox_baseline"
+            android:id="@+id/baselineCheckbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onCheckboxClicked"
@@ -39,7 +39,7 @@
 
         <!-- "Power Cube to Switch" checkbox -->
         <CheckBox
-            android:id="@+id/checkbox_switch"
+            android:id="@+id/switchCheckbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/item_vertical_margin_big"
@@ -51,7 +51,7 @@
 
         <!-- "Power Cube to Scale" checkbox -->
         <CheckBox
-            android:id="@+id/checkbox_scale"
+            android:id="@+id/scaleCheckbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/item_vertical_margin_big"
@@ -64,10 +64,10 @@
 
     <!-- "TeleOp Period" button -->
     <Button
-        android:id="@+id/teleopPeriod"
+        android:id="@+id/teleopPeriodButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/form_autonomous"
+        android:layout_below="@id/autonomousLayout"
         android:layout_centerInParent="true"
         android:layout_marginTop="@dimen/item_vertical_margin_big"
         android:onClick="onButtonClicked"

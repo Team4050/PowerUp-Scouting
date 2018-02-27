@@ -7,7 +7,7 @@
 
     <!-- Biohazard logo background image -->
     <ImageView
-        android:id="@+id/logoBiohazard"
+        android:id="@+id/logoBiohazardImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/logo_biohazard"
@@ -16,7 +16,7 @@
 
     <!-- PowerUp logo background image -->
     <ImageView
-        android:id="@+id/logoPowerUp"
+        android:id="@+id/logoPowerUpImageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/item_vertical_margin_big"
@@ -25,15 +25,27 @@
 
     <!-- "Begin Scouting" button -->
     <Button
-        android:id="@+id/mainBeginScouting"
+        android:id="@+id/beginScoutingButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/logoPowerUp"
+        android:layout_below="@id/logoPowerUpImageView"
         android:layout_centerInParent="true"
         android:onClick="onButtonClicked"
         android:padding="@dimen/item_horizontal_margin_small"
         android:text="@string/begin_scouting"
         android:textSize="36sp"
+        android:textStyle="bold" />
+
+    <!-- "Dump Data File" button -->
+    <Button
+        android:id="@+id/dumpDataFileButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:onClick="onButtonClicked"
+        android:padding="@dimen/item_horizontal_margin_small"
+        android:text="@string/dump_data_file"
+        android:textSize="24sp"
         android:textStyle="bold" />
 
 </RelativeLayout>

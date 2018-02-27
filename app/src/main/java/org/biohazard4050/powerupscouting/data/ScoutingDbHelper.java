@@ -18,7 +18,8 @@ public class ScoutingDbHelper extends SQLiteOpenHelper {
                     ScoutingData.COLUMN_INFO_REMATCH_IND + " TEXT," +
                     ScoutingData.COLUMN_INFO_TEAM_NUMBER + " TEXT," +
                     ScoutingData.COLUMN_INFO_ALLIANCE_COLOR + " TEXT," +
-                    ScoutingData.COLUMN_INFO_STARTING_POSITION + " TEXT," +
+                    ScoutingData.COLUMN_INFO_STATION_POSITION + " TEXT," +
+                    ScoutingData.COLUMN_INFO_ROBOT_POSITION + " TEXT," +
                     ScoutingData.COLUMN_AUTO_BASELINE_IND + " TEXT," +
                     ScoutingData.COLUMN_AUTO_SWITCH_IND + " TEXT," +
                     ScoutingData.COLUMN_AUTO_SCALE_IND + " TEXT," +
@@ -27,6 +28,7 @@ public class ScoutingDbHelper extends SQLiteOpenHelper {
                     ScoutingData.COLUMN_TELE_SCALE + " INTEGER," +
                     ScoutingData.COLUMN_TELE_BLUE_SWITCH + " INTEGER," +
                     ScoutingData.COLUMN_TELE_BLUE_EXCHANGE + " INTEGER," +
+                    ScoutingData.COLUMN_TELE_AVE_CUBE_TIME + " TEXT," +
                     ScoutingData.COLUMN_EOM_END_STATE + " TEXT," +
                     ScoutingData.COLUMN_EOM_PENALTY_YELLOW + " TEXT," +
                     ScoutingData.COLUMN_EOM_PENALTY_RED + " TEXT," +
@@ -44,7 +46,8 @@ public class ScoutingDbHelper extends SQLiteOpenHelper {
                     ScoutingData.COLUMN_INFO_REMATCH_IND + " TEXT," +
                     ScoutingData.COLUMN_INFO_TEAM_NUMBER + " TEXT," +
                     ScoutingData.COLUMN_INFO_ALLIANCE_COLOR + " TEXT," +
-                    ScoutingData.COLUMN_INFO_STARTING_POSITION + " TEXT," +
+                    ScoutingData.COLUMN_INFO_STATION_POSITION + " TEXT," +
+                    ScoutingData.COLUMN_INFO_ROBOT_POSITION + " TEXT," +
                     ScoutingData.COLUMN_AUTO_BASELINE_IND + " TEXT," +
                     ScoutingData.COLUMN_AUTO_SWITCH_IND + " TEXT," +
                     ScoutingData.COLUMN_AUTO_SCALE_IND + " TEXT," +
@@ -53,6 +56,7 @@ public class ScoutingDbHelper extends SQLiteOpenHelper {
                     ScoutingData.COLUMN_TELE_SCALE + " INTEGER," +
                     ScoutingData.COLUMN_TELE_BLUE_SWITCH + " INTEGER," +
                     ScoutingData.COLUMN_TELE_BLUE_EXCHANGE + " INTEGER," +
+                    ScoutingData.COLUMN_TELE_AVE_CUBE_TIME + " TEXT," +
                     ScoutingData.COLUMN_EOM_END_STATE + " TEXT," +
                     ScoutingData.COLUMN_EOM_PENALTY_YELLOW + " TEXT," +
                     ScoutingData.COLUMN_EOM_PENALTY_RED + " TEXT," +
