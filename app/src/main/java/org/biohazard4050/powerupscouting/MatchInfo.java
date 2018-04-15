@@ -100,7 +100,7 @@ public class MatchInfo extends AppCompatActivity {
 
         if (validationError) {
             Toast missingDataToast = Toast.makeText(getApplicationContext(),
-                    errorMessage, Toast.LENGTH_SHORT);
+                    errorMessage, Toast.LENGTH_LONG);
             missingDataToast.setGravity(Gravity.CENTER, 0, 150);
             missingDataToast.show();
         } else {
@@ -288,7 +288,7 @@ public class MatchInfo extends AppCompatActivity {
         }
 
         if (!toastMessage.equals("NO_ERROR")) {
-            Toast missingDataToast = Toast.makeText(getApplicationContext(), toastMessage, Toast.LENGTH_SHORT);
+            Toast missingDataToast = Toast.makeText(getApplicationContext(), toastMessage, Toast.LENGTH_LONG);
             missingDataToast.setGravity(Gravity.CENTER, 0, 0);
             missingDataToast.show();
         }

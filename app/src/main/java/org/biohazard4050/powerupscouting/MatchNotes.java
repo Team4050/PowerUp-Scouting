@@ -75,7 +75,7 @@ public class MatchNotes extends AppCompatActivity {
         int updateCount = scoutingDb.update(ScoutingData.TABLE_STAGING_DATA, values, null, null);
 
         if (updateCount == 0) {
-            Toast missingDataToast = Toast.makeText(getApplicationContext(), "Error updating match", Toast.LENGTH_SHORT);
+            Toast missingDataToast = Toast.makeText(getApplicationContext(), "Error updating match", Toast.LENGTH_LONG);
             missingDataToast.setGravity(Gravity.CENTER, 0, 0);
             missingDataToast.show();
         }
@@ -201,12 +201,12 @@ public class MatchNotes extends AppCompatActivity {
             long newRowId = scoutingDb.insertOrThrow(ScoutingData.TABLE_PRIMARY_DATA, null, values);
 
             if (newRowId == 0) {
-                Toast missingDataToast = Toast.makeText(getApplicationContext(), "Error with saving to primary table", Toast.LENGTH_SHORT);
+                Toast missingDataToast = Toast.makeText(getApplicationContext(), "Error with saving to primary table", Toast.LENGTH_LONG);
                 missingDataToast.setGravity(Gravity.CENTER, 0, 0);
                 missingDataToast.show();
             }
         } catch (Exception e) {
-            Toast missingDataToast = Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT);
+            Toast missingDataToast = Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG);
             missingDataToast.setGravity(Gravity.CENTER, 0, 0);
             missingDataToast.show();
         }

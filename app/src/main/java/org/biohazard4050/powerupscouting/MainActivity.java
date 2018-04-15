@@ -21,8 +21,6 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
-// TODO: Write out only exchange value for alliance color, not "-1" value
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
